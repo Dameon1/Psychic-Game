@@ -1,22 +1,27 @@
 
     var guessesLeft = [""]
     var computerChoices = ["a", "b", "c", "d","e"];
-
-    // Creating variables to hold the number of wins, losses, and ties. They start at 0.
+    var userGuess = [""];
     var wins = 0;
     var losses = 0;
 
-// This function is run whenever the user presses a key.
+//working key event for wins
   document.onkeyup = function(event) {
-
-    // Determines which key was pressed.
-    var userGuess = event.key;
+    userGuess = event.key;
     var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
-    if{ userGuess === computerChoices, wins++}
-     else {loses--};
-};
-  determines {guesses left counter: a number counter that goes down if wrong}
+      if (userGuess === computerGuess){
+          console.log("yeas"), wins++; }
+
+
+var html = wins;
+
+document.querySelector("#wins").innerHTML = html;
+
+
+}
+
+  /*determines {guesses left counter: a number counter that goes down if wrong}
   { show player guesses: An array that uses the .push feature
     and display it on screen}
-  {wins++ losses--}
+  {wins++ losses--}*/
