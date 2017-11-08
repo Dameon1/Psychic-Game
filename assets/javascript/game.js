@@ -11,26 +11,54 @@
 
 
 
-  for (var i = 0 ; i < guessesLeft ; guessesLeft--) {
+
 
 
 
 
       document.onkeyup = function(event) {
 
-        userGuess = event.key;
+
+
+
+        var userGuess = event.key;
         var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
-          if (userGuess === computerGuess) {
+          if ( userGuess === computerGuess) {
               console.log("yeas"), wins++;
               var htmlwins = wins;
               document.querySelector("#wins").innerHTML = htmlwins;
-            }
-            else ( console.log("nos"))
-             ;
-      var htmlguessesLeft = guessesLeft;
-      document.querySelector("#guessesLeft").innerHTML = htmlguessesLeft;
-    }}
+              var htmlguessesLeft = guessesLeft;
+              document.querySelector("#guessesLeft").innerHTML = htmlguessesLeft;
+              var htmlguessesLeft = 9;
+              document.querySelector("#guessesLeft").innerHTML = htmlguessesLeft;
+
+              var htmlLosses = losses;
+              document.querySelector("#losses").innerHTML = htmlLosses;
+              }
+
+
+              else if (guessesLeft === 0){
+                console.log("no");losses++;
+              }
+
+                      else if (guessesLeft === 0) {
+                        guessesLeft--;
+                      var htmlguessesLeft = 9;
+                      document.querySelector("#guessesLeft").innerHTML = htmlguessesLeft;
+
+              }
+
+
+
+
+
+          else { guessesLeft--;
+            var htmlguessesLeft = guessesLeft;
+          document.querySelector("#guessesLeft").innerHTML = htmlguessesLeft;
+}
+}
+
 
       /*determines {guesses left counter: a number counter that goes down if wrong}
       { show player guesses: An array that uses the .push feature
