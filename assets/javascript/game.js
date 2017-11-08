@@ -8,7 +8,16 @@
         var losses = 0;
 
     //working key event for wins
+
+
+
+  for (var i = 0 ; i < guessesLeft ; guessesLeft--) {
+
+
+
+
       document.onkeyup = function(event) {
+
         userGuess = event.key;
         var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
@@ -17,10 +26,11 @@
               var htmlwins = wins;
               document.querySelector("#wins").innerHTML = htmlwins;
             }
-             else (guessesLeft--);
+            else ( console.log("nos"))
+             ;
       var htmlguessesLeft = guessesLeft;
       document.querySelector("#guessesLeft").innerHTML = htmlguessesLeft;
-    }
+    }}
 
       /*determines {guesses left counter: a number counter that goes down if wrong}
       { show player guesses: An array that uses the .push feature
