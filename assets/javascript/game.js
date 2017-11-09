@@ -1,22 +1,26 @@
 /* declared some variables*/
         var guessesLeft = 9;
         var computerChoices = ["a", "b", "c", "d","e"];
-        var userGuess = ["userguess"];
+        var usersGuess = [];
         var wins = 0;
         var losses = 0;
 
 /* made an action happen to start the game*/
-
       document.onkeyup = function(event) {
 
 /* set variables for userGuess and computerGuess*/
-
       var userGuess = event.key;
       var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
+/* a random log to check if its working*/
       console.log(userGuess);
+      console.log(computerGuess);
+
+/* This if for logging the users guess onto the HTML */
+      usersGuess.push(userGuess);
+      document.querySelector("#usersGuess").innerHTML = usersGuess;
 
 /* Setting the action in motion by asking if player wins or losses or pickes again??*/
-
       if ( userGuess === computerGuess) {
           console.log("yeas"),
           wins++;
@@ -36,7 +40,7 @@
       else  {
            guessesLeft--;
             console.log(guessesLeft);
-            console.log(htmlguessesLeft);
+
             var htmlguessesLeft = guessesLeft;
             document.querySelector("#guessesLeft").innerHTML = htmlguessesLeft;
 
