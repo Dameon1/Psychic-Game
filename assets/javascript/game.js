@@ -37,6 +37,29 @@
  /* made an action happen to start the game*/
 
 
+  function winChecker (x,y) {
+    if ( x === y) {
+      console.log("yeas");
+      wins++;
+      document.querySelector("#wins").innerHTML = wins;}
+
+    }
+
+  function loseChecker ()  {
+      guessesLeft--;
+    if ( guessesLeft === 0 ) {
+      losses++;
+      document.querySelector("#losses").innerHTML = losses;
+      for ( i = 0; i < 9; i++) {
+        guessesLeft++;
+      };
+    }
+      else {
+        console.log("no");
+      document.querySelector("#usersGuess").innerHTML = usersGuess;
+
+    }
+    }
 
 
 
@@ -49,23 +72,24 @@
 
       document.onkeyup = function(event) {
 
-          var htmlguessesLeft = 9;
+        var htmlguessesLeft = 9;
 
 /* set variables for userGuess and computerGuess*/
         var userGuess = event.key;
         var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
         log();
+        winChecker(userGuess,computerGuess);
 /* This if for logging the users guess onto the HTML and log to the console
-*/        usersGuess.push(userGuess);
-          console.log(computerGuess);
+*/      usersGuess.push(userGuess);
+        console.log(computerGuess);
 
 
 
-      if ( userGuess === computerGuess) {
-          console.log("yeas");
-          wins++;
-          document.querySelector("#wins").innerHTML = wins;}
-          else { console.log("no");}
+
+          loseChecker();
+
+        console.log("why");
+        document.querySelector("#guessesLeft").innerHTML = guessesLeft;
 }
     /*  if ( u) {
           guessesLeft--;
