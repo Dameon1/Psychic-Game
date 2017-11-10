@@ -1,3 +1,18 @@
+
+
+
+
+
+/* DISCLAIMER --
+
+This file is UGLY!!!!! I"m to clean it up a little..
+
+
+Needs Debugged*/
+
+
+/*Start File*/
+
 /* declared some variables*/
 
 /* First variable declares a prompt and a function (to be used throughout for debugging purposes*/
@@ -8,6 +23,7 @@
         console.log("Hi");
         console.log("Did you look" + userName);
 }
+
 /* Test of funtion working*/
         log();
 
@@ -84,11 +100,11 @@
         var userGuess = event.key;
         var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
         log();
-        winChecker(userGuess,computerGuess);
+      
 /* This if for logging the users guess onto the HTML and log to the console
 */      usersGuess.push(userGuess);
         console.log(computerGuess);
-
+        winChecker(userGuess,computerGuess);
 
 
 
@@ -97,7 +113,15 @@
         console.log("why");
         document.querySelector("#guessesLeft").innerHTML = guessesLeft;
 }
-    /*  if ( u) {
+
+
+
+
+
+
+
+/*
+     if ( u) {
           guessesLeft--;
           document.querySelector("#usersGuess").innerHTML = usersGuess;
 
