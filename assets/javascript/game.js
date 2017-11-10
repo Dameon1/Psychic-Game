@@ -41,9 +41,13 @@
     if ( x === y) {
       console.log("yeas");
       wins++;
-      document.querySelector("#wins").innerHTML = wins;}
-
+      document.querySelector("#wins").innerHTML = wins;
+    while (usersGuess.length > 0 ) {
+        var get =  usersGuess.shift();
+        guessesLeft++;
     }
+
+  }}
 
   function loseChecker ()  {
       guessesLeft--;
@@ -52,9 +56,10 @@
       document.querySelector("#losses").innerHTML = losses;
       for (i = 0; i < 9; i++) {
         guessesLeft++;
-
+        if (usersGuess.length > 0 ) {
+          var get =  usersGuess.shift();
       }
-    }
+    }}
       else {
         console.log("no");
       document.querySelector("#usersGuess").innerHTML = usersGuess;
