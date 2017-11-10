@@ -50,9 +50,10 @@
     if ( guessesLeft === 0 ) {
       losses++;
       document.querySelector("#losses").innerHTML = losses;
-      for ( i = 0; i < 9; i++) {
+      for (i = 0; i < 9; i++) {
         guessesLeft++;
-      };
+
+      }
     }
       else {
         console.log("no");
