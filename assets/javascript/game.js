@@ -53,6 +53,7 @@ document.onkeyup = function(event) {
 
         /* set variabless for userGuess and computerGuess*/
         userGuess = event.key;
+        isLetterUsable();
         userGuesses.unshift(userGuess);
         checkForWin(userGuess,computerGuess);
         checkForLose();
@@ -62,6 +63,22 @@ document.onkeyup = function(event) {
 
 gameStart();
 
+
+
+
+
+let isLetterUsable = function(){
+  if (userGuesses.indexOf(userGuess)!== -1){
+    throw alert("You already guessed that!")
+  }
+
+  if (computerChoices.indexOf(userGuess) === -1 ){
+    throw alert("Not a letter!!");
+  }
+  //letter checker
+//it will determine if it is a letter or not
+//will determine if letter is aleady picked
+}
 
 
 
