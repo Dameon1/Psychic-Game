@@ -8,9 +8,6 @@
 
 /*Start File*/
 
-/* First variables declares a prompt and a function (to be used throughout for debugging purposes*/
-
-let userName = prompt("What is your name?")
 
 /* This is the stored variables for computer choice*/
 let computerChoices = ["a", "b", "c", "d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w"];
@@ -21,37 +18,41 @@ let computerChoices = ["a", "b", "c", "d","e","f","g","h","i","j","k","l","m","n
   let wins = 0;
   let losses = 0;
   let userGuesses = [];
-  let guessesLeft = 9;
+  let guessesLeft;
   let computerGuess;    
   let userGuess;
 
 
 
   let checkForLose = function() {
-    guessesLeft--;
+   
     if (guessesLeft<=0) {
     alert("You Lose!")
     losses++;
     document.querySelector("#losses").innerHTML = losses;
     guessesLeft = 9;
+    userGuesses = [];
+    gameStart();
     }
   };
 
   let checkForWin = function(x,y){
-    if (x === y){
-      alert("You Win!");
-      wins++;
-      document.querySelector("#wins").innerHTML = wins;
-      guessesLeft = 9;
+      if (x === y){
+        alert("You Win!");
+        wins++;
+        document.querySelector("#wins").innerHTML = wins;
+        userGuesses = [];
+        gameStart();
+        }
+    
+    guessesLeft--;
     }
-    else {
-      alert("Try Again");
-    }
-  }
 
 
   let gameStart = function(){
     computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+    console.log("The correct answer is : " + computerGuess);
+    guessesLeft = 9;
   }
 
 
@@ -60,18 +61,21 @@ document.onkeyup = function(event) {
 
 /* set variabless for userGuess and computerGuess*/
         userGuess = event.key;
+        
+        userGuesses.unshift(userGuess);
         checkForWin(userGuess,computerGuess);
         checkForLose();
-        usersGuess.push(userGuess);
+        
         document.querySelector("#guessesLeft").innerHTML = guessesLeft;
+        document.querySelector("#usersGuess").innerHTML = userGuesses;
         }
 
 
-
+gameStart();
 /*
      if ( u) {
           guessesLeft--;
-          document.querySelector("#usersGuess").innerHTML = usersGuess;
+          
 
           console.log(guessesLeft);
           document.querySelector("#guessesLeft").innerHTML = guessesLeft; };
