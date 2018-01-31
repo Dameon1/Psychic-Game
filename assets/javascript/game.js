@@ -4,119 +4,67 @@
 
 
 /* DISCLAIMER --
-
-This file is UGLY!!!!! I"m to clean it up a little..
-
-
-Needs Debugged*/
-
+//First JS try..
 
 /*Start File*/
 
-/* declared some variables*/
+/* First variables declares a prompt and a function (to be used throughout for debugging purposes*/
 
-/* First variable declares a prompt and a function (to be used throughout for debugging purposes*/
+let userName = prompt("What is your name?")
 
-      var userName = prompt("What is your name?")
-
-      function log () {
-        console.log("Hi");
-        console.log("Did you look" + userName);
-}
-
-/* Test of funtion working*/
-        log();
-
-/* This is the stored variable for computer choice*/
-        var computerChoices = ["a", "b", "c", "d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w"];
+/* This is the stored variables for computer choice*/
+let computerChoices = ["a", "b", "c", "d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w"];
 
 /* This is an array to store the usersGuess , could be used as local or global depending */
 
-/* Variables to store wins and losses,. which are "global" attributes that don't change.*/
-        var wins = 0;
-        var losses = 0;
-        var usersGuess = [];
-        var htmlusersGuess = [];
-        var guessesLeft = 9;
-        console.log("working");
-/* Function to reset the html on screen*/
-/* Need to make!!*/
-
-/*     let htmlguessesleft = 9;
-     document.querySelector("#guessesLeft").innerHTML = htmlguessesLeft;
-     let htmlusersGuess = [];
-     document.querySelector("#usersGuess").innerHTML = htmlusersGuess;
-     alert("Game Over");
-
-}
- reset();
- /* made an action happen to start the game*/
+/* variables to store wins and losses,. which are "global" attributes that don't change.*/
+  let wins = 0;
+  let losses = 0;
+  let userGuesses = [];
+  let guessesLeft = 9;
+  let computerGuess;    
+  let userGuess;
 
 
-  function winChecker (x,y) {
-    if ( x === y) {
-      console.log("yeas");
+
+  let checkForLose = function() {
+    guessesLeft--;
+    if (guessesLeft<=0) {
+    alert("You Lose!")
+    losses++;
+    document.querySelector("#losses").innerHTML = losses;
+    guessesLeft = 9;
+    }
+  };
+
+  let checkForWin = function(x,y){
+    if (x === y){
+      alert("You Win!");
       wins++;
       document.querySelector("#wins").innerHTML = wins;
-    while (usersGuess.length > 0 ) {
-        var get =  usersGuess.shift();
-        guessesLeft++;
+      guessesLeft = 9;
     }
-
-  }}
-
-  function loseChecker ()  {
-      guessesLeft--;
-    if ( guessesLeft === 0 ) {
-      losses++;
-      document.querySelector("#losses").innerHTML = losses;
-      for (i = 0; i < 9; i++) {
-        guessesLeft++;
-        if (usersGuess.length > 0 ) {
-          var get =  usersGuess.shift();
-      }
-    }}
-      else {
-        console.log("no");
-      document.querySelector("#usersGuess").innerHTML = usersGuess;
-
+    else {
+      alert("Try Again");
     }
-    }
+  }
 
 
+  let gameStart = function(){
+    computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+  }
 
 
+document.onkeyup = function(event) {
+ 
 
-
-
-
-
-
-      document.onkeyup = function(event) {
-
-        var htmlguessesLeft = 9;
-
-/* set variables for userGuess and computerGuess*/
-        var userGuess = event.key;
-        var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-        log();
-      
-/* This if for logging the users guess onto the HTML and log to the console
-*/      usersGuess.push(userGuess);
-        console.log(computerGuess);
-        winChecker(userGuess,computerGuess);
-
-
-
-          loseChecker();
-
-        console.log("why");
+/* set variabless for userGuess and computerGuess*/
+        userGuess = event.key;
+        checkForWin(userGuess,computerGuess);
+        checkForLose();
+        usersGuess.push(userGuess);
         document.querySelector("#guessesLeft").innerHTML = guessesLeft;
-}
-
-
-
-
+        }
 
 
 
@@ -153,12 +101,12 @@ Needs Debugged*/
         }}
 /*else {
 reset();
-  var htmlguessesLeft = guessesLeft;
+  let htmlguessesLeft = guessesLeft;
   document.querySelector("#guessesLeft").innerHTML = htmlguessesLeft};
   if ( guessesLeft === 0 ) {
             console.log("lose");
             losses++; log(); reset();
-            var htmlLosses = losses;
+            let htmlLosses = losses;
             document.querySelector("#losses").innerHTML = htmlLosses;}
 
             "<p>You chose: " + userGuess + "</p>" +
@@ -188,32 +136,7 @@ reset();
 //game over
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //nonworking key event for  displayed wins
-
-
 
 /*
       let htmllettersPicked = guessed;
@@ -227,3 +150,16 @@ reset();
   { show player guesses: An array that uses the .push feature
     and display it on screen}
   {wins++ losses--}*/
+
+/* Function to reset the html on screen*/
+/* Need to make!!*/
+
+/*     let htmlguessesleft = 9;
+     document.querySelector("#guessesLeft").innerHTML = htmlguessesLeft;
+     let htmlusersGuess = [];
+     document.querySelector("#usersGuess").innerHTML = htmlusersGuess;
+     alert("Game Over");
+
+}
+ reset();
+ /* made an action happen to start the game*/
