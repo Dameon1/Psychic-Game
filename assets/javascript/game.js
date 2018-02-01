@@ -1,15 +1,8 @@
-/* DISCLAIMER --
-//First JS try..
 
-/*Start File*/
+// A variable that holds and array for computer choices
+  let computerChoices = ["a", "b", "c", "d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w"];
 
-
-/* This is the stored variables for computer choice*/
-let computerChoices = ["a", "b", "c", "d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w"];
-
-/* This is an array to store the usersGuess , could be used as local or global depending */
-
-/* variables to store wins and losses,. which are "global" attributes that don't change.*/
+//Variables to store wins and losses,
   let wins = 0;
   let losses = 0;
   let userGuesses = [];
@@ -18,7 +11,7 @@ let computerChoices = ["a", "b", "c", "d","e","f","g","h","i","j","k","l","m","n
   let userGuess;
 
 
-
+//Function that checks if player loses.
   let checkForLose = function() {
     if (guessesLeft<=0) {
     alert("You Lose!")
@@ -75,10 +68,7 @@ let isLetterUsable = function(){
   if (computerChoices.indexOf(userGuess) === -1 ){
     throw alert("Not a letter!!");
   }
-  //letter checker
-//it will determine if it is a letter or not
-//will determine if letter is aleady picked
-}
+} 
 
 
 
