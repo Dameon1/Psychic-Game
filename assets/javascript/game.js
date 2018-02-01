@@ -1,6 +1,6 @@
 
 // A variable that holds and array for computer choices
-  let computerChoices = ["a", "b", "c", "d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+  let computerChoices = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 
 //Variables to store wins and losses,
   let wins = 0;
@@ -23,6 +23,7 @@
     }
   };
 
+//Function that checks for wins
   let checkForWin = function(x,y){
     guessesLeft--;  
     if (x === y){
@@ -34,53 +35,43 @@
         }
       }
 
-
+//Function that starts the game
   let gameStart = function(){
     computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
     console.log("The correct answer is : " + computerGuess);
     guessesLeft = 9;
     }
 
-
-document.onkeyup = function(event) {
-
-        /* set variabless for userGuess and computerGuess*/
-        userGuess = event.key;
-        isLetterUsable();
-        userGuesses.unshift(userGuess);
-        checkForWin(userGuess,computerGuess);
-        checkForLose();
-        document.querySelector("#guessesLeft").innerHTML = guessesLeft;
-        document.querySelector("#usersGuess").innerHTML = userGuesses;
-        }
-
-gameStart();
-
-
-
-
-
-let isLetterUsable = function(){
-  if (userGuesses.indexOf(userGuess)!== -1){
+//Determines if the letter has been guesses already and if it is not a letter
+  let isLetterUsable = function(){
+    if (userGuesses.indexOf(userGuess)!== -1){
     throw alert("You already guessed that!")
-  }
-
-  if (computerChoices.indexOf(userGuess) === -1 ){
+    }
+    if (computerChoices.indexOf(userGuess) === -1 ){
     throw alert("Not a letter!!");
-  }
-} 
+    }
+  } 
 
+  // This function happens everytime a user presses a key
+  document.onkeyup = function(event) {
 
+    //Sets variable for userGuess
+    userGuess = event.key;
+    
+    //Checks if letter was guessed or if not a letter
+    isLetterUsable();
+    
+    //Puts the users guess into the front of userGuesses array by using .unshift()
+    userGuesses.unshift(userGuess);
+    
+    //Checks to see if the user won or lost
+    checkForWin(userGuess,computerGuess);
+    checkForLose();
+    
+    //Changes the content on the screen
+    document.querySelector("#guessesLeft").innerHTML = guessesLeft;
+    document.querySelector("#usersGuess").innerHTML = userGuesses;
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
+//Starts the game   
+gameStart();
