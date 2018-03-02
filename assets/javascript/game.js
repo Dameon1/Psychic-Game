@@ -1,20 +1,21 @@
 
 // A variable that holds and array for computer choices
-  let computerChoices = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+  let computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l",
+        "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 //Variables to store wins and losses,
   let wins = 0;
   let losses = 0;
   let userGuesses = [];
   let guessesLeft;
-  let computerGuess;    
+  let computerGuess;
   let userGuess;
 
 
 //Function that checks if player loses.
-  let checkForLose = function() {
-    if (guessesLeft<=0) {
-    alert("You Lose!")
+  let checkForLose = function () {
+    if (guessesLeft <= 0) {
+    alert("You Lose!");
     losses++;
     document.querySelector("#losses").innerHTML = losses;
     guessesLeft = 9;
@@ -24,7 +25,7 @@
   };
 
 //Function that checks for wins
-  let checkForWin = function(x,y){
+  let checkForWin = function (x, y) {
     guessesLeft--;  
     if (x === y){
         alert("You Win!");
